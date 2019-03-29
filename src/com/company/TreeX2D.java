@@ -11,10 +11,12 @@ public class TreeX2D {
             if (lx == rx){
 //                System.out.println("lx = " + lx + " ly = " + ly);
                 t[vx][vy] = a[lx][ly];
+                System.out.println("t[" + vx + "][" + vy + "] = " + t[vx][vy] + " a[" + lx + "][" + ly + "] = " + a[lx][ly]);
 //                System.out.println("t[" + vx + "][" + vy + "] = " + t[vx][vy]);
             }else{
                 t[vx][vy] = t[2 * vx][vy] + t[2 * vx + 1][vy];
 //                System.out.println("t[" + vx + "][" + vy + "] = " + t[vx][vy]);
+                System.out.println("t[" + vx + "][" + vy + "] = " + t[vx][vy] + " a[" + lx + "][" + ly + "] = " + a[lx][ly]);
             }
         }else{
             int vmiddleY = ly + (ry - ly) / 2;
@@ -23,7 +25,7 @@ public class TreeX2D {
             build_Y(vx, lx, rx, 2 * vy, ly, vmiddleY, a);
             build_Y(vx, lx, rx, 2 * vy + 1, vmiddleY + 1, ry, a);
             t[vx][vy] = t[vx][2 * vy] + t[vx][2 * vy + 1];
-//            System.out.println("t[" + vx + "][" + vy + "] = " + t[vx][vy]);
+            System.out.println("t[" + vx + "][" + vy + "] = " + t[vx][vy]);
         }
     }
 
@@ -39,6 +41,7 @@ public class TreeX2D {
         }
         build_Y(vx, lx, rx, 1, 0, 3, a);                    //COLUMNS!!!!!
     }
+
 
     private int finalQuery(int pos, int start, int end, int x1, int x2, int node, int a[][]){
         if (x2 < start || end < x1){
